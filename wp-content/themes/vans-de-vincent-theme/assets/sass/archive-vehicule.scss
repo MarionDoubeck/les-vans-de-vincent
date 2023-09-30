@@ -1,0 +1,28 @@
+.archive-vehicule, .archive-actu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .archive-title-box{
+        min-height: 100px;
+        padding: 40px 0;
+        border-top: 2px solid $orange1;
+        border-bottom: 2px solid $orange1;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .recherche{
+        border: solid 1px $gris1;
+        padding: 20px 0;
+        border-radius: $border-radius;
+        height: 40px;
+        z-index: 100;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+.archive-actu{
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 80px;
+    row-gap: 30px;
+}

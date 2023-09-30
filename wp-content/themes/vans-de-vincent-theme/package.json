@@ -1,0 +1,14 @@
+{
+  "name": "vans_by_vince",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./assets/sass/main.scss:./public/style.css",
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "Marion Doubeck",
+  "license": "ISC"
+}

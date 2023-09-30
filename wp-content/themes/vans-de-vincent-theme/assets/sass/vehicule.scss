@@ -1,0 +1,82 @@
+.vehicule{
+    .title-box{
+        display: grid;
+        padding-top: 20px;
+        border-top: 2px solid $orange1;
+        border-bottom: 2px solid $orange1;
+        @include media(desktop){
+            height: 400px;
+            grid-template-areas: 
+                'title pic'
+                'info info';
+            grid-template-rows: 300px 90px;
+            grid-template-columns: 1fr 500px ;
+        }
+        @include media(mobile, tablet){
+            grid-template-areas: 
+                'title'
+                'pic'
+                'info';
+            //grid-template-rows: 300px 90px;
+            grid-template-columns: 100%;
+        }
+    }
+    h1{
+        grid-area: title;
+        align-self: center;
+        text-align: center;
+        margin-right: 30px;
+    }
+    img{
+        grid-area: pic;
+        @include media(desktop){
+            height: 300px;
+            width: 500px;
+        }
+        @include media(mobile, tablet){
+            width: 100%;
+            height: 300px;
+        }
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+    .vehicule-info{
+        grid-area: info;
+        width: 100%;
+        height: 90px;
+        align-items: center;
+        justify-content: space-between;
+
+        ul{
+            //background-color: $gris1;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            //padding: 20px;
+            border: $gris1 3px solid;
+            border-radius: $border-radius;
+            flex-wrap: wrap;
+            li{
+                margin: 0 2px;
+                span{
+                    font-weight: bold;
+                }
+                &::before{
+                    content: '';
+                    margin: 0;
+                    width: 0;
+                }
+            }
+        }
+    }
+    .links-title{
+        color: $orange1;
+        font-family: $title-font;
+        font-size: 4rem;
+    } 
+    .posts-lies{
+        justify-content: flex-start;
+        column-gap: 20px;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,237 @@
+/* $breakpoints: (
+  mobile : 0px,
+  tabletVertical : 480px,
+  tabletHorizontal : 980px,
+  desktop : 1220px,
+  largeScreen : 1900px
+);
+$breakpoints-max: (
+  mobile : 479px,
+  tabletVertical : 979px,
+  tabletHorizontal : 1219px,
+  desktop : 1899px,
+  largeScreen : 999999px
+); */
+
+
+
+$breakpoints: (
+  mobile : 0px,
+  tablet : $breakpointTablet,
+  desktop : $breakpointDesktop, //1500
+);
+$breakpoints-max: (
+  mobile : calc($breakpointTablet - 1px),
+  tablet : calc($breakpointDesktop - 1px),
+  desktop : 999999px
+);
+
+@mixin media($keys...){
+  @each $key in $keys{
+    @media screen and (min-width: map-get($breakpoints, $key))  and (max-width: map-get($breakpoints-max, $key)) {
+      @content;
+    }
+  }
+}
+
+
+body {
+  color: #333;
+  font-family: $text-font, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #CBD0D9;
+  @include media(desktop){
+  font-size: 20px;
+  }
+}
+.hidden{
+  display: none !important;
+}
+.container{
+  width: calc(100vw - 80px);
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+  border-radius: $border-radius;
+  padding: 20px;
+  min-height: calc(100vh - 440px);
+  @include media(tablet, mobile){
+    min-height: calc(100vh - 370px);
+  }
+  @media screen and (max-width : 1450px){
+    min-height: calc(100vh - 85px);
+}
+}
+.texte{
+  width: calc(100% - 40px);
+  margin: 0;
+  background-color: #fff;
+  border-radius: $border-radius;
+  padding: 20px;
+}
+.full-width-container{
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+.content-box{
+  width: inherit;
+  margin: 30px 0 50px 0;
+  p{
+      margin: 20px 0;
+  }
+}
+.img-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.flex{
+  display: flex;
+}
+li{
+  list-style: none;
+}
+ul li::before {
+  content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: $orange1; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+*{
+  font-family: $text-font;
+  color: black;
+}
+h1{
+  font-family: $title-font;
+}
+h1{
+  @include media(desktop){
+  font-size: 6rem;
+  }
+  @include media(mobile, tablet){
+  font-size: 3.5rem;
+  }
+  color: $orange1;
+  //border-top: $orange1 solid 2px;
+  //border-bottom: $orange1 solid 2px;
+  margin: 0;
+  //text-shadow: 0 0 1px $gris1, 0 0 2px $gris1,0 0 3px $gris1, 0 0 5px $gris1,0 0 10px $gris1, 0 0 30px $gris1;
+}
+h2{
+  @include media(desktop){
+  font-size: 2.5rem;
+  }
+  @include media(mobile, tablet){
+  font-size: 1.7rem;
+  }
+}
+h3{
+  @include media(desktop){
+  font-size: 2rem;
+  }
+  @include media(mobile, tablet){
+  font-size: 1.3rem;
+  }
+}
+h4{
+  @include media(desktop){
+  font-size: 1.5rem;
+  }
+  @include media(mobile, tablet){
+  font-size: 1.1rem;
+  }
+}
+a, a:visited{
+  color: $orange1;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn, .btn-card{
+  position: relative;
+  margin: 20px auto;
+  padding: 19px 22px;
+  transition: all .2s ease;
+  &:before{
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    background: rgba($orange1,.5);
+    width: 56px;
+    height: 56px;
+    transition: all .3s ease;
+  }
+  span{
+    position: relative;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 900;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  svg{
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: $gris1;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all .3s ease;
+  }
+  &:hover{
+    &:before{
+      width: 100%;
+      background: rgba($orange1,1);
+    }
+    svg{
+      transform: translateX(0);
+      stroke: black
+    }
+  }
+  &:active{
+    transform: scale(.96);
+  }
+}
+.btn-card{
+  &:before{
+    background: rgba(white,.5);
+  }
+  &:hover{
+    &:before{
+      width: 100%;
+      background: rgba(white,1);
+    }
+  }
+}
+
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
+.bg-white{
+  background-color: #fff;
+}
+
+.chapo{
+  margin: 100px 0;
+  font-size: 1.2rem;
+}
+
+.wp-block-separator{
+  margin: 100px 0;
+}
