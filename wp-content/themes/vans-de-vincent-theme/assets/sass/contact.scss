@@ -12,3 +12,50 @@ font-size: 1.2rem;
 padding-right: 7px;
 vertical-align: sub;
 }
+
+table.horaires {
+    width: 350px; /* La table prendra toute la largeur du conteneur */
+    border-collapse: collapse; /* Fusionner les bordures de cellules */
+    text-align: center;
+}
+
+/* Style pour les cellules de l'en-tête */
+table.horaires th {
+    text-align: left;
+    background-color: #f2f2f2;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Style pour les cellules de données (jours, horaires) */
+table.horaires td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Largeur spécifique pour la colonne "Jour" */
+table.horaires th:nth-child(1),
+table.horaires td:nth-child(1) {
+    width: 100px; /* Largeur en pixels ou autre unité de mesure */
+}
+
+/* Largeur spécifique pour la colonne "Matin" */
+table.horaires th:nth-child(2),
+table.horaires td:nth-child(2) {
+    width: 150px; /* Largeur en pixels ou autre unité de mesure */
+}
+
+/* Largeur spécifique pour la colonne "Après-midi" */
+table.horaires th:nth-child(3),
+table.horaires td:nth-child(3) {
+    width: 150px; /* Largeur en pixels ou autre unité de mesure */
+}
+
+#samedi{
+    width: 300px;
+    text-align: center;
+}
+
+iframe{
+    max-width: 100%;
+}

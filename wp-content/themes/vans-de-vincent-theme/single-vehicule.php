@@ -14,9 +14,8 @@ while(have_posts()){
     $carburant = get_field('carburant');
     $statut = get_field('statut');
     $prix = get_field('prix'); 
-    $actus = get_field('actualite_liee'); 
-    $events = get_field('evenement_lie'); 
-    $chapo = get_field('chapo');
+    $chapo = get_field('introduction');
+    $taille = get_field('taille');
     ?>
     <div class="container bg-white vehicule">
         <div class="title-box">
@@ -37,6 +36,9 @@ while(have_posts()){
                     }
                     ?></li>
                     <?php endif;
+                    if($taille): ?>
+                        <li><span>Taille : </span><?php echo $taille[0]; ?></li>
+                        <?php endif;
                     if($annee): ?>
                     <li><span>Année : </span><?php echo $annee; ?></li>
                     <?php endif;
@@ -59,25 +61,16 @@ while(have_posts()){
 
         <div><?php the_content(); ?></div>
 
-        <?php if($actus): ?>
-            <h2 class='links-title'>Les actualités du <?php the_title(); ?> :</h2>
-            <div class="posts-lies flex">
-                <?php
-                foreach($actus as $actu){
-                    get_template_part( 'parts/bloc','actu', array('post_id' => $actu));
-                }?>
-            </div>
-        <?php endif; ?>
-
-        <?php if($events): ?>
-            <h2 class='links-title'>Les évènements avec le <?php the_title(); ?> :</h2>
-            <div class="posts-lies flex">
-            <?php
-                foreach($events as $event){
-                    get_template_part( 'parts/bloc','actu', array('post_id' => $event));
-                }?>
-            </div>
-        <?php endif; ?>
+        <div class="toutes-real">
+            <a href="/categorie/realisation" class="btn-card">
+                <span>Voir toutes nos réalisation</span>
+                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                </svg>
+            </a>
+        </div>
+        
     </div>
 <?php }
 

@@ -7,9 +7,9 @@
 
     <?php
     $allRealisations = new WP_Query( array(
-        'post_type' => array('vehicule', 'box', 'kit', 'evenement'),
+        'post_type' => array('vehicule', 'box', 'kit'),
         'tag' => array('realisation'),
-        'posts_per_page' => 5,
+        'posts_per_page' => -1,
         'post_status' => 'publish',
     ));
     while ($allRealisations->have_posts()){

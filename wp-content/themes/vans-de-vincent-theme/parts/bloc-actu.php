@@ -11,14 +11,6 @@ if (get_field('image_mise_en_avant', $postId)){
 }
 if(get_post_type($postId)==='post'){
     $date = get_the_date('',$postId);
-}elseif(get_post_type($postId)==='evenement'){
-    $date = get_field('date_de_levenement_debut', $postId); 
-    if(get_field('date_de_levenement_fin', $postId)){
-        $date = 'du '.$date.' au '.get_field('date_de_levenement_fin', $postId);
-    }else{
-        $date = 'le '.$date; 
-    }
-    $date.=' à '.get_field('ville', $postId);
 }else{
     $date = get_post_type($postId);
 }

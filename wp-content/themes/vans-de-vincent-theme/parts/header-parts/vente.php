@@ -29,7 +29,7 @@
     $titre = "Composants et accessoires";
     $image = 'https://x6i2h2j9.rocketcdn.me/wp-content/uploads/2022/11/porte-velo-sol-04.jpg.webp';
     $contenu = "Vous cherchez un accessoire d'aménagement ? Nous en avons également du lit peigne au porte skateboard, il y en a pour tous les besoins.<Br/>Pour vos installations électrique, nous sommes également revendeur Ecoflow. ";
-    $lien = '/accessoires';
+    $lien = '/accessoire';
     get_template_part( 'parts/bloc','sub-menu', array(
         'titre' => $titre,
         'image' => $image,
@@ -40,7 +40,7 @@
 
 
     $titre = "Dépot vente de véhicules aménagés";
-    $image = 'http://lesvansdevincent.com/wp-content/uploads/2023/05/traffic.jpeg';
+    $image = 'https://lesvansdevincent.com/wp-content/uploads/2023/05/traffic.jpeg';
     $contenu = "Nous faisons du dépot-vente de véhicules aménagés, tels quels ou après quelques transformations.<Br>Pour vendre votre véhicule contactez-nous.<Br>Pour acheter cliquez ci-dessous.";
     $lien = '/categorie/depot-vente';
     get_template_part( 'parts/bloc','sub-menu', array(
@@ -51,5 +51,5 @@
         'nombre d etiquettes' => $nbEtiquettes
     ));
     ?>
-<div class="close">X</div>
+<img class="close" src="<?= get_stylesheet_directory_uri() ?>/assets/images/close.svg" alt="close-menu">
 </ul>

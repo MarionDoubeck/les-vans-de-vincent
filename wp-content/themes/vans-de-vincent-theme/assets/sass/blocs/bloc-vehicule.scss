@@ -1,7 +1,7 @@
 .bloc-vehicule{
     @include media(desktop){
         width: 800px;
-        height: 350px;
+        height: 370px;
     }
     @include media(mobile, tablet){
         width: calc(100% - 40px);
@@ -48,6 +48,13 @@
         }
         .vehicule-info{
             margin-bottom: 30px;
+            ul{
+                margin-bottom: 10px;
+                li{
+                    font-size: 18px;
+                    margin-top: 15px;
+                }
+            }
         }
         .btn{
             margin-left: 40px;

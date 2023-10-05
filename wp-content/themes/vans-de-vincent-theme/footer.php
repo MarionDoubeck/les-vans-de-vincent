@@ -1,7 +1,7 @@
 <footer>
     <div class="full-width-container">
         <div class="reseaux">
-            <a class="reseau" href="https://www.facebook.com/profile.php?id=100091935797658">
+            <a class="reseau" href="https://www.facebook.com/profile.php?id=100091935797658" target="_blank">
                 <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/facebook.svg'; ?>" alt="">
             </a>
             <!-- <a class="reseau" href="#">

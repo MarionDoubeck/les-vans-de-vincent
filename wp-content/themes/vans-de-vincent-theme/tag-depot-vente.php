@@ -5,34 +5,6 @@
         <h1>Véhicules à vendre</h1>
     </div>
 
-
-    <!-- <div class="recherche">
-            <div class="type_de_realisation drop-down">
-                <ul>
-                    <li class="drop-down-label drop-down-all-choices">Toutes les catégories</li>
-                    <?php
-                        //$array = get_field_object('type_de_realisation')['choices'];
-                        //foreach($array as $value){?>
-                            <li class="drop-down-choice hidden"><?php //echo $value; ?></li>
-                        <?php //}
-                    ?>
-                </ul>
-            </div>
-
-            <div class="statut drop-down">
-                <ul>
-                    <li class="drop-down-label drop-down-all-choices">Tous les statuts</li>
-                    <?php
-                       // $array = get_field_object('statut')['choices'];
-                       // foreach($array as $value){?>
-                            <li class="drop-down-choice hidden"><?php //echo $value; ?></li>
-                        <?php //}
-                    ?>
-                </ul>
-            </div>
-    </div> -->
-
-
     <?php
     $allRealisations = new WP_Query( array(
         'post_type' => array('vehicule', 'box', 'kit', 'evenement'),
@@ -51,7 +23,6 @@
     <div id="no-results-for-drops-down"></div>
     
 </div>
-
 
 <?php
 get_footer();

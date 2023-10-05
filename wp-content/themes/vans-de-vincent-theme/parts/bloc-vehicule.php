@@ -5,12 +5,13 @@ if ($args['post_id']){
 $title = get_the_title($postId);
 $permalink = get_the_permalink($postId);
 $typeReal = get_field('type_de_realisation'); 
-$image = get_field('image_mise_en_avant'); 
+//$image = get_field('image_mise_en_avant'); 
 $annee = get_field('annee'); 
 $km = get_field('kilometrage'); 
 $carburant = get_field('carburant');
 $statut = get_field('statut');
 $prix = get_field('prix'); 
+$taille = get_field('taille'); 
 
 if (get_field('image_mise_en_avant', $postId)){
     $image = get_field('image_mise_en_avant', $postId);
@@ -36,6 +37,9 @@ $classForDropDown = 'type_de_realisation'.$class2; */
                         } 
                     }
                     ?></li>
+                    <?php endif;
+                    if($taille): ?>
+                    <li><span>Taille : </span><?php echo $taille[0]; ?></li>
                     <?php endif;
                     if($annee): ?>
                     <li><span>Année : </span><?php echo $annee; ?></li>

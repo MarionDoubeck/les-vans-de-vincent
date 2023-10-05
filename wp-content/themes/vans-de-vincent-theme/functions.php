@@ -43,9 +43,9 @@ function vans_by_vince_bouton($texte, $lien){
     echo '<a href="' . $lien . '" class="btn"><span>' . $texte . '</span><svg width="13px" height="10px" viewBox="0 0 13 10"><path d="M1,5 L11,5"></path><polyline points="8 1 12 5 8 9"></polyline></svg></a>';
 }
 
-add_action( 'init', 'cp_change_post_object' );
+//add_action( 'init', 'cp_change_post_object' );
 // Change dashboard Posts to Actus
-function cp_change_post_object() {
+/* function cp_change_post_object() {
     $get_post_type = get_post_type_object('post');
     $labels = $get_post_type->labels;
     $labels->name = 'Actus';
@@ -61,8 +61,8 @@ function cp_change_post_object() {
     $labels->all_items = 'Toutes les actus';
     $labels->menu_name = 'Actus';
     $labels->name_admin_bar = 'Actus';
-}
-function vans_by_vince_replace_admin_menu_icons_css() {
+} */
+/* function vans_by_vince_replace_admin_menu_icons_css() {
     ?>
     <style>
         .dashicons-admin-post:before {
@@ -70,9 +70,45 @@ function vans_by_vince_replace_admin_menu_icons_css() {
         }
     </style>
     <?php
+} */
+
+//add_action( 'admin_head', 'vans_by_vince_replace_admin_menu_icons_css' );
+
+//taxo pour les accessoires
+function enregistrer_taxonomie_pour_accessoires() {
+    $labels = array(
+        'name' => 'Type d \'accessoire',
+        'singular_name' => 'Type d \'accessoire',
+        'menu_name' => 'Type d \'accessoire',
+        'all_items' => 'Tous les types d \'accessoire',
+        'edit_item' => 'Modifier le type d \'accessoire',
+        'view_item' => 'Voir le type d \'accessoire',
+        'update_item' => 'Mettre à jour le type d \'accessoire',
+        'add_new_item' => 'Ajouter un nouveau type d \'accessoire',
+        'new_item_name' => 'Nouveau nom du type d \'accessoire',
+        'parent_item' => 'Élément parent',
+        'parent_item_colon' => 'Élément parent :',
+        'search_items' => 'Rechercher parmi les éléments de votre taxonomie',
+        'popular_items' => 'Éléments populaires',
+        'separate_items_with_commas' => 'Séparer les éléments avec des virgules',
+        'add_or_remove_items' => 'Ajouter ou supprimer des éléments',
+        'choose_from_most_used' => 'Choisir parmi les plus utilisés',
+        'not_found' => 'Aucun élément trouvé',
+    );
+
+    $args = array(
+        'hierarchical' => true, // true pour une taxonomie hiérarchique, false pour non hiérarchique.
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'type_accessoire'), // Personnalisez le slug ici.
+    );
+
+    register_taxonomy('type_accessoire', 'accessoire', $args);
 }
 
-add_action( 'admin_head', 'vans_by_vince_replace_admin_menu_icons_css' );
+add_action('init', 'enregistrer_taxonomie_pour_accessoires');
 
 //custom post types
 function vans_by_vince_post_types(){
@@ -125,11 +161,11 @@ function vans_by_vince_post_types(){
         'show_in_rest' => true,
         'supports' => ['title', 'thumbnail', 'editor'], 
         'menu_icon' => get_stylesheet_directory_uri().'/assets/images/kit.png',
-        'taxonomies' => array('post_tag')
+        //'taxonomies' => array('post_tag')
         ),
     );
     register_post_type('accessoire', array(
-        'has_archive' => 'accessoires',
+        'has_archive' => 'accessoire',
         'public' => true,
         'labels' => array(
             'name' => 'Accessoire d\'aménagement',
@@ -142,28 +178,9 @@ function vans_by_vince_post_types(){
         'show_in_rest' => true,
         'supports' => ['title', 'thumbnail', 'editor'], 
         'menu_icon' => get_stylesheet_directory_uri().'/assets/images/lego.png',
-        'taxonomies' => array('post_tag')
+        'taxonomies' => array('type_accessoire')
         ),
     );
-    register_post_type('evenement', array(
-        'has_archive' => 'evenements',
-        'public' => true,
-        'labels' => array(
-            'name' => 'Évènements',
-            'all_items' => 'Tous les évènements',
-            'add_new' => 'Ajouter un évènement',
-            'add_new_item' => 'Ajouter un évènement',
-            'singular_name' => 'Évènement',
-            'edit_item' => 'Modifier un évènement'
-        ),
-        'show_in_rest' => true,
-        'supports' => ['title', 'thumbnail', 'editor'], 
-        'menu_icon' => get_stylesheet_directory_uri().'/assets/images/calendrier.png',
-        'taxonomies' => array('post_tag')
-        ),
-    );
-
-    
 }
 add_action('init','vans_by_vince_post_types');
 
@@ -190,7 +207,7 @@ function dgtlnk_custom_menu_order( $menu_ord ) {
           'edit.php?post_type=box', // Box
           'edit.php?post_type=kit', // Kits d'aménagement
           'edit.php?post_type=accessoire', // Accessoires d'aménagement
-          'edit.php?post_type=evenement', // Evènements
+          //'edit.php?post_type=evenement', // Evènements
           'edit.php?post_type=page', // Pages
 
           'separator1', // First separator
@@ -214,3 +231,5 @@ function wpc_dashicons() {
 	wp_enqueue_style('dashicons');
 }
 add_action('wp_enqueue_scripts', 'wpc_dashicons');
+
+

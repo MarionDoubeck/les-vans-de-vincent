@@ -12,28 +12,21 @@
 <header>
     <div class="header full-width-container">
 
-        <?php if (is_front_page()) : ?>
-        <div class="background-image">
-            <div class="layer"></div>
-            <img src="http://lesvansdevincent.com/wp-content/uploads/2023/05/fond-home-page-scaled.jpeg" alt="">
-        </div>
-        <?php endif; ?>
+
 
         <!-- menu haut -->
         <div class="header-menu-content">
             <ul id="menu-gauche">
                 <li id="prestations">Prestations<div class="underliner"></div></li>
                 <li id="realisations">Réalisations<div class="underliner"></div></li>
-                <li id="aLaVente">A la vente<div class="underliner"></div></li>
             </ul>
-
+            
             <div class="logo">
                 <a href="<?= site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri().'/assets/images/logo.png'; ?>" alt="logo"></a>
             </div>
-
+            
             <ul id="menu-droite">
-                <li><a href="<?= site_url() ?>/evenements">Evènements</a><div class="underliner"></div></li>
-                <li><a href="<?= site_url() ?>/actualites">Actualités</a><div class="underliner"></div></li>
+                <li id="aLaVente">A la vente<div class="underliner"></div></li> 
                 <li><a href="<?= site_url() ?>/nous-contacter">Nous contacter</a><div class="underliner"></div></li>
             </ul>
         </div>
@@ -70,6 +63,18 @@
                             <div class="border-bottom"></div>
                         </li>
                         <li>
+                            <a href="<?= site_url() ?>/vente-et-pose-de-kits-pour-vehicules-de-loisir" aria-label="Solutions loisir">
+                                Nos solution loisir
+                            </a>
+                            <div class="border-bottom"></div>
+                        </li>
+                        <li>
+                            <a href="<?= site_url() ?>/vente-et-pose-de-kits-pour-vehicules-professionnels" aria-label="Solutions pro">
+                                Nos solution pro
+                            </a>
+                            <div class="border-bottom"></div>
+                        </li>
+                        <li>
                             <a href="<?= site_url() ?>/categorie/realisation" aria-label="Voir les réalisations">
                                 Toutes nos réalisations
                             </a>
@@ -88,7 +93,7 @@
                             <div class="border-bottom"></div>
                         </li>
                         <li>
-                            <a href="<?= site_url() ?>/accessoires" aria-label="Composants et accessoires">
+                            <a href="<?= site_url() ?>/accessoire" aria-label="Composants et accessoires">
                                 Composants et accessoires
                             </a>
                             <div class="border-bottom"></div>
@@ -96,18 +101,6 @@
                         <li>
                             <a href="<?= site_url() ?>/categorie/depot-vente" aria-label="Dépot vente de véhicules">
                                 Dépot-vente de véhicules
-                            </a>
-                            <div class="border-bottom"></div>
-                        </li>
-                        <li>
-                            <a href="<?= site_url() ?>/actualites" aria-label="Blog">
-                                Actualités
-                            </a>
-                            <div class="border-bottom"></div>
-                        </li>
-                        <li>
-                            <a href="<?= site_url() ?>/evenements" aria-label="évènements">
-                               Évènements
                             </a>
                             <div class="border-bottom"></div>
                         </li>

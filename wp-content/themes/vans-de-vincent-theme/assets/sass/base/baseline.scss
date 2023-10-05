@@ -34,7 +34,6 @@ $breakpoints-max: (
   }
 }
 
-
 body {
   color: #333;
   font-family: $text-font, sans-serif;
@@ -47,6 +46,14 @@ body {
   font-size: 20px;
   }
 }
+p{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+h1, h2{
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
 .hidden{
   display: none !important;
 }
@@ -57,12 +64,12 @@ body {
   margin-bottom: 70px;
   border-radius: $border-radius;
   padding: 20px;
-  min-height: calc(100vh - 440px);
+  min-height: calc(100vh - 90px);
   @include media(tablet, mobile){
     min-height: calc(100vh - 370px);
   }
   @media screen and (max-width : 1450px){
-    min-height: calc(100vh - 85px);
+    min-height: calc(100vh - 390px);
 }
 }
 .texte{
@@ -76,6 +83,9 @@ body {
   width: 100vw;
   padding: 0;
   margin: 0;
+}
+.page-content{
+  margin: 0 30px;
 }
 .content-box{
   width: inherit;
@@ -93,8 +103,23 @@ body {
 .flex{
   display: flex;
 }
+.col{
+  flex-direction: column;
+}
+.wrap{
+  flex-wrap: wrap;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+ul{
+  margin-bottom: 50px;
+}
 li{
   list-style: none;
+  margin-top: 20px;
+  margin-left: 1.2rem;
 }
 ul li::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
@@ -139,6 +164,7 @@ h3{
   @include media(mobile, tablet){
   font-size: 1.3rem;
   }
+  margin-bottom: 30px;
 }
 h4{
   @include media(desktop){
@@ -154,6 +180,7 @@ a, a:visited{
   cursor: pointer;
 }
 .btn, .btn-card{
+  cursor: pointer;
   position: relative;
   margin: 20px auto;
   padding: 19px 22px;
@@ -204,6 +231,14 @@ a, a:visited{
   &:active{
     transform: scale(.96);
   }
+  @include media(mobile, tablet){
+    margin: 0 auto;
+    text-align: center;
+    &::before{
+      content: '';
+      display: none;
+    }
+  }
 }
 .btn-card{
   &:before{
@@ -234,4 +269,36 @@ a, a:visited{
 
 .wp-block-separator{
   margin: 100px 0;
+}
+
+.wp-block-button{
+  margin: 20px auto !important;
+}
+.toutes-real, .toutes-box, .tous-accessoires{
+  height: 60px;
+  width: 443px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $orange1;
+  border-radius: 50px;
+  margin: 50px auto;
+  a{
+    margin: 0 auto;
+  }
+  .btn-card{
+    padding-bottom: 24px !important;
+  }
+  @include media(mobile, tablet){
+    max-width: 80%;
+  }
+}
+.toutes-box{
+  width: 338px;
+}
+.tous-accessoires{
+  width: 419px;
+}
+.orange{
+  color: $orange1;
 }
